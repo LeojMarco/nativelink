@@ -126,3 +126,23 @@ jobs:
 
     - name: Run tests
       run: ./run_integration_tests.sh
+# MODULE.bazel
+
+module(
+    name = "my_project",  # Choose a descriptive name for your project/module
+    version = "1.0",      # Version your module 
+)
+
+# Dependencies
+bazel_dep(
+    name = "local-remote-execution",
+    version = "0",    # Bazel doesn't use versioning for local modules
+)
+
+# Git Override
+git_override(
+    module_name = "local-remote-execution",
+    remote = "https://github.com/TraceMachina/nativelink",
+    strip_prefix = "nativelink",
+    commit = "64ed20a40964b8c606c7d65f76af840bcfc837fd",  # Pin to specific commit
+)
