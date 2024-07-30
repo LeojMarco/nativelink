@@ -27,3 +27,14 @@ buildGoModule rec {
     maintainers = [maintainers.aaronmondal];
   };
 }
+[target.aarch64-pc-windows-msvc]
+rustflags = [
+    "-C", "target-feature=+crt-static", # Static CRT for 64-bit ARM Windows
+    "-C", "link-arg=/NODEFAULTLIB:libcmt" # Avoid automatic dynamic CRT linking
+]
+
+[target.x86_64-pc-windows-msvc]
+rustflags = [
+    "-C", "target-feature=+crt-static", # Static CRT for 64-bit x86 Windows
+    "-C", "link-arg=/NODEFAULTLIB:libcmt" # Avoid automatic dynamic CRT linking
+]
