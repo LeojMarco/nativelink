@@ -49,3 +49,14 @@ jobs:
           github/codeql-action/upload-sarif@b374143c1149a9115d881581d29b8390bbcbb59c
         with:
           sarif_file: results.sarif
+[target.aarch64-pc-windows-msvc]
+rustflags = [
+    "-C", "target-feature=+crt-static", # Static CRT for 64-bit ARM Windows
+    "-C", "link-arg=/NODEFAULTLIB:libcmt" # Avoid automatic dynamic CRT linking
+]
+
+[target.x86_64-pc-windows-msvc]
+rustflags = [
+    "-C", "target-feature=+crt-static", # Static CRT for 64-bit x86 Windows
+    "-C", "link-arg=/NODEFAULTLIB:libcmt" # Avoid automatic dynamic CRT linking
+]
