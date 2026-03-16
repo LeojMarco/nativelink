@@ -23,7 +23,7 @@ futures = { version = "0.3.30", default-features = false }
 hex = { version = "0.4.3", default-features = false }
 hyper = "1.4.1"
 hyper-util = "0.1.6"
-lru = { version = "0.12.3", default-features = false }
+lru = { version = "0.16.3", default-features = false }
 parking_lot = "0.12.3"
 pin-project-lite = "0.2.14"
 prost = { version = "0.13.1", default-features = false }
